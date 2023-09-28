@@ -50,6 +50,15 @@ while moving:
     x += xdir * 5
     y += ydir * 5
 
+    if 115 >= x:
+        x += 5
+    if 1165 <= x:
+        x -= 5
+    if 115 >= y:
+        y += 5
+    if 919 <= y:
+        y -= 5
+
     # Idle 상태
     if 0 == xdir and 0 == ydir:
         if 0 <= frame % 15 and 4 >= frame % 15:
@@ -61,7 +70,54 @@ while moving:
         elif 10 <= frame % 15 and 14 >= frame % 15:
             character.clip_draw(249, 267, 39, 43, x, y, 150, 150)
 
-        frame += 1
+
+    # LeftTop 상태
+    elif -1 == xdir and 1 == ydir:
+        if 0 <= frame % 15 and 4 >= frame % 15:
+            character.clip_draw(139, 56, 50, 55, x, y, 150, 150)
+
+        elif 5 <= frame % 15 and 9 >= frame % 15:
+            character.clip_draw(190, 56, 54, 47, x, y, 150, 150)
+
+        elif 10 <= frame % 15 and 14 >= frame % 15:
+            character.clip_draw(245, 56, 49, 43, x, y, 150, 150)
+
+
+    # LeftBottom 상태
+    elif -1 == xdir and -1 == ydir:
+        if 0 <= frame % 15 and 4 >= frame % 15:
+            character.clip_draw(146, 112, 42, 45, x, y, 150, 150)
+
+        elif 5 <= frame % 15 and 9 >= frame % 15:
+            character.clip_draw(189, 112, 47, 36, x, y, 150, 150)
+
+        elif 10 <= frame % 15 and 14 >= frame % 15:
+            character.clip_draw(236, 112, 50, 39, x, y, 150, 150)
+
+
+    # RightTop 상태
+    elif 1 == xdir and 1 == ydir:
+        if 0 <= frame % 15 and 4 >= frame % 15:
+            character.clip_composite_draw(139, 56, 50, 55, 0, 'h', x, y, 150, 150)
+
+        elif 5 <= frame % 15 and 9 >= frame % 15:
+            character.clip_composite_draw(190, 56, 54, 47, 0, 'h', x, y, 150, 150)
+
+        elif 10 <= frame % 15 and 14 >= frame % 15:
+            character.clip_composite_draw(245, 56, 49, 43, 0, 'h', x, y, 150, 150)
+
+
+    # RightBottom 상태
+    elif 1 == xdir and -1 == ydir:
+        if 0 <= frame % 15 and 4 >= frame % 15:
+            character.clip_composite_draw(146, 112, 42, 45, 0, 'h', x, y, 150, 150)
+
+        elif 5 <= frame % 15 and 9 >= frame % 15:
+            character.clip_composite_draw(189, 112, 47, 36, 0, 'h', x, y, 150, 150)
+
+        elif 10 <= frame % 15 and 14 >= frame % 15:
+            character.clip_composite_draw(236, 112, 50, 39, 0, 'h', x, y, 150, 150)
+
 
     # Left 상태
     elif -1 == xdir and 0 == ydir:
@@ -74,7 +130,6 @@ while moving:
         elif 10 <= frame % 15 and 14 >= frame % 15:
             character.clip_draw(243, 157, 60, 40, x, y, 250, 150)
 
-        frame += 1
 
     # Right 상태
     elif 1 == xdir and 0 == ydir:
@@ -87,7 +142,6 @@ while moving:
         elif 10 <= frame % 15 and 14 >= frame % 15:
             character.clip_composite_draw(243, 157, 60, 40, 0, 'h', x, y, 250, 150)
 
-        frame += 1
 
     # Up 상태
     elif 0 == xdir and 1 == ydir:
@@ -100,7 +154,6 @@ while moving:
         elif 10 <= frame % 15 and 14 >= frame % 15:
             character.clip_draw(253, 209, 33, 46, x, y, 100, 150)
 
-        frame += 1
 
     # Down 상태
     elif 0 == xdir and -1 == ydir:
@@ -113,10 +166,7 @@ while moving:
         elif 10 <= frame % 15 and 14 >= frame % 15:
             character.clip_composite_draw(253, 209, 33, 46, pi, 'h', x, y, 100, 150)
 
-        frame += 1
-
-
-
+    frame += 1
 
     update_canvas()
     handle_events()
