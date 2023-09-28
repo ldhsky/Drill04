@@ -172,3 +172,5 @@ while moving:
     handle_events()
 
     delay(0.02)
+
+close_canvas()
