@@ -40,8 +40,8 @@ moving = True
 
 x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
 xdir, ydir = 0, 0
-xidleframe, xidle = 142, 0
-yidleframe, yidle = 267, 0
+frame = 0
+pi = 3.141592653589793
 
 while moving:
     clear_canvas()
@@ -52,68 +52,68 @@ while moving:
 
     # Idle 상태
     if 0 == xdir and 0 == ydir:
-        if 0 <= xidle % 15 and 4 >= xidle % 15:
+        if 0 <= frame % 15 and 4 >= frame % 15:
             character.clip_draw(142, 267, 40, 42, x, y, 150, 150)
 
-        elif 5 <= xidle % 15 and 9 >= xidle % 15:
+        elif 5 <= frame % 15 and 9 >= frame % 15:
             character.clip_draw(183, 267, 65, 37, x, y, 250, 150)
 
-        elif 10 <= xidle % 15 and 14 >= xidle % 15:
+        elif 10 <= frame % 15 and 14 >= frame % 15:
             character.clip_draw(249, 267, 39, 43, x, y, 150, 150)
 
-        xidle += 1
+        frame += 1
 
     # Left 상태
     elif -1 == xdir and 0 == ydir:
-        if 0 <= xidle % 15 and 4 >= xidle % 15:
+        if 0 <= frame % 15 and 4 >= frame % 15:
             character.clip_draw(123, 157, 59, 52, x, y, 250, 150)
 
-        elif 5 <= xidle % 15 and 9 >= xidle % 15:
+        elif 5 <= frame % 15 and 9 >= frame % 15:
             character.clip_draw(183, 157, 60, 39, x, y, 250, 150)
 
-        elif 10 <= xidle % 15 and 14 >= xidle % 15:
+        elif 10 <= frame % 15 and 14 >= frame % 15:
             character.clip_draw(243, 157, 60, 40, x, y, 250, 150)
 
-        xidle += 1
+        frame += 1
 
     # Right 상태
     elif 1 == xdir and 0 == ydir:
-        if 0 <= xidle % 15 and 4 >= xidle % 15:
-            character.clip_draw(123, 157, 59, 52, x, y, 250, 150)
+        if 0 <= frame % 15 and 4 >= frame % 15:
+            character.clip_composite_draw(123, 157, 59, 52, 0, 'h', x, y, 250, 150)
 
-        elif 5 <= xidle % 15 and 9 >= xidle % 15:
-            character.clip_draw(183, 157, 60, 39, x, y, 250, 150)
+        elif 5 <= frame % 15 and 9 >= frame % 15:
+            character.clip_composite_draw(183, 157, 60, 39, 0, 'h', x, y, 250, 150)
 
-        elif 10 <= xidle % 15 and 14 >= xidle % 15:
-            character.clip_draw(243, 157, 60, 40, x, y, 250, 150)
+        elif 10 <= frame % 15 and 14 >= frame % 15:
+            character.clip_composite_draw(243, 157, 60, 40, 0, 'h', x, y, 250, 150)
 
-        xidle += 1
+        frame += 1
 
     # Up 상태
     elif 0 == xdir and 1 == ydir:
-        if 0 <= xidle % 15 and 4 >= xidle % 15:
-            character.clip_draw(123, 157, 59, 52, x, y, 250, 150)
+        if 0 <= frame % 15 and 4 >= frame % 15:
+            character.clip_draw(145, 209, 43, 57, x, y, 130, 200)
 
-        elif 5 <= xidle % 15 and 9 >= xidle % 15:
-            character.clip_draw(183, 157, 60, 39, x, y, 250, 150)
+        elif 5 <= frame % 15 and 9 >= frame % 15:
+            character.clip_draw(189, 209, 64, 46, x, y, 200, 150)
 
-        elif 10 <= xidle % 15 and 14 >= xidle % 15:
-            character.clip_draw(243, 157, 60, 40, x, y, 250, 150)
+        elif 10 <= frame % 15 and 14 >= frame % 15:
+            character.clip_draw(253, 209, 33, 46, x, y, 100, 150)
 
-        xidle += 1
+        frame += 1
 
     # Down 상태
     elif 0 == xdir and -1 == ydir:
-        if 0 <= xidle % 15 and 4 >= xidle % 15:
-            character.clip_draw(123, 157, 59, 52, x, y, 250, 150)
+        if 0 <= frame % 15 and 4 >= frame % 15:
+            character.clip_composite_draw(145, 209, 43, 57, pi, 'h', x, y, 130, 200)
 
-        elif 5 <= xidle % 15 and 9 >= xidle % 15:
-            character.clip_draw(183, 157, 60, 39, x, y, 250, 150)
+        elif 5 <= frame % 15 and 9 >= frame % 15:
+            character.clip_composite_draw(189, 209, 64, 46, pi, 'h', x, y, 200, 150)
 
-        elif 10 <= xidle % 15 and 14 >= xidle % 15:
-            character.clip_draw(243, 157, 60, 40, x, y, 250, 150)
+        elif 10 <= frame % 15 and 14 >= frame % 15:
+            character.clip_composite_draw(253, 209, 33, 46, pi, 'h', x, y, 100, 150)
 
-        xidle += 1
+        frame += 1
 
 
 
